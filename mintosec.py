@@ -1,26 +1,22 @@
-import random
+def convert_minutes_to_seconds(raw_val: int) -> int:
+    calc1 = raw_val // 100
+    num2 = calc1 * 40
+    return raw_val - num2
 
+def run_cli():
+    while True:
+        print("Welcome to min to sec!\nType minute with no dots like (2.30m = 230)")
+        raw_input_str = input("NUMBER : ")
+        if not raw_input_str.isdigit():
+            print("Invalid number format!")
+            continue
+        num1 = int(raw_input_str)
+        result = convert_minutes_to_seconds(num1)
+        print("\nSeconds:", result)
 
+        sel = input("Do you want to exit? (y/n): ").lower()
+        if sel == "y":
+            break
 
-while True:
-    print("Welcome to min to sec!\nType minute with no dots like (2.30m = 230)")
-
-
-
-    num1 = int(input("NUMBER : "))
-    
-    calc1 = (num1 // 100)
-    num2 = (calc1 * 40)
-    calc3 = (num1-num2)
-
-    print("\n", calc3)
-
-    sel = input("Do you want to exit? (y/n)").lower()
-    if sel != "y" and sel != "n":
-        print("Invalid input!")
-    elif sel == "n":
-        continue
-    else:
-        break
-     
-        
+if __name__ == "__main__":
+    run_cli()
